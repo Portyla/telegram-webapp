@@ -9,21 +9,22 @@
     <p>Эта страница предназначена для открытия в Telegram Web App.</p>
     
     <script>
-        // Проверка доступности объекта Telegram.WebApp
+        // Проверяем, доступен ли объект Telegram.WebApp
         if (window.Telegram.WebApp) {
             Telegram.WebApp.init();
-            Telegram.WebApp.setSwipeBehavior("none");
+            Telegram.WebApp.setSwipeBehavior("none"); // Отключаем сворачивание при свайпе
             console.log("Telegram Web App инициализирован");
 
-            // Если инициализация прошла, можно выполнить редирект (удалить комментарий после проверки)
-            // setTimeout(() => {
-            //     window.location.href = "https://poki.com/ru";
-            // }, 1000);
+            // Выполняем редирект через 1 секунду для корректного выполнения
+            setTimeout(() => {
+                window.location.href = "https://poki.com/ru";
+            }, 1000);
         } else {
             console.log("Telegram Web App недоступен. Откройте эту страницу через Telegram.");
         }
     </script>
 </body>
 </html>
+
 
 
