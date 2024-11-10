@@ -5,18 +5,28 @@
     <title>Бесплатные онлайн игры в Телеграм</title>
 </head>
 <body>
-    <script>
-        // Переадресация на сайт с играми
-            window.location.replace("https://poki.com/ru");
-    </script>
+    <h1>Добро пожаловать в игру!</h1>
+    <p>Эта страница предназначена для открытия в Telegram Web App.</p>
+
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-<script>
- window.addEventListener('load', (event) => {
-     window.Telegram.WebApp.ready();
-     window.Telegram.WebApp.expand(); //expand window after page loading
-     window.Telegram.WebApp.isVerticalSwipesEnabled = false;
-     window.Telegram.WebApp.disableVerticalSwipes();
- });
-</script>
+    <script>
+        // Убедитесь, что Telegram Web App инициализирован и отключены свайпы
+        window.addEventListener('load', () => {
+            if (window.Telegram && window.Telegram.WebApp) {
+                Telegram.WebApp.ready();
+                Telegram.WebApp.expand();
+                
+                // Отключение свайпов
+                Telegram.WebApp.setSwipeBehavior("none");
+
+                // Задержка перед редиректом, чтобы инициализация успела выполниться
+                setTimeout(() => {
+                    window.location.replace("https://poki.com/ru");
+                }, 500);  // редирект через 0.5 секунды после инициализации
+            } else {
+                console.log("Telegram Web App недоступен. Попробуйте открыть через Telegram.");
+            }
+        });
+    </script>
 </body>
 </html>
