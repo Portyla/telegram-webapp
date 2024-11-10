@@ -5,17 +5,25 @@
     <title>Игры</title>
 </head>
 <body>
-    <p>Перенаправление...</p> <!-- Сообщение пользователю -->
+    <h1>Добро пожаловать в игру!</h1>
+    <p>Эта страница предназначена для открытия в Telegram Web App.</p>
+    
     <script>
-        // Проверка доступности объекта Telegram.WebApp и установка поведения свайпа
-        window.Telegram.WebApp?.init();
-        window.Telegram.WebApp?.setSwipeBehavior("none");  // Отключаем сворачивание при свайпе
+        // Проверка доступности объекта Telegram.WebApp
+        if (window.Telegram.WebApp) {
+            Telegram.WebApp.init();
+            Telegram.WebApp.setSwipeBehavior("none");
+            console.log("Telegram Web App инициализирован");
 
-        // Осуществляем перенаправление с задержкой
-        setTimeout(() => {
-            window.location.href = "https://poki.com/ru";
-        }, 1000);  // Задержка 1 секунда для корректного выполнения
+            // Если инициализация прошла, можно выполнить редирект (удалить комментарий после проверки)
+            // setTimeout(() => {
+            //     window.location.href = "https://poki.com/ru";
+            // }, 1000);
+        } else {
+            console.log("Telegram Web App недоступен. Откройте эту страницу через Telegram.");
+        }
     </script>
 </body>
 </html>
+
 
