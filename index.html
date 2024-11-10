@@ -13,18 +13,19 @@
         if (window.Telegram && window.Telegram.WebApp) {
             Telegram.WebApp.init();
             Telegram.WebApp.setSwipeBehavior("none"); // Отключаем сворачивание при свайпе
-            document.body.insertAdjacentHTML("beforeend", "<p>Telegram Web App доступен!</p>");
             console.log("Telegram Web App инициализирован");
 
-            // Удалите комментарии ниже, чтобы добавить редирект после успешного теста
-            /setTimeout(() => {
-                 window.location.href = "https://ya.ru";
-             }, 1000);
+            // Делаем редирект через 1 секунду, чтобы Telegram Web App успел инициализироваться
+            setTimeout(() => {
+                window.location.href = "https://poki.com/ru";
+            }, 1000);
         } else {
+            // Сообщение, если Web App недоступен
             document.body.insertAdjacentHTML("beforeend", "<p>Telegram Web App недоступен. Попробуйте открыть через Telegram.</p>");
             console.log("Telegram Web App недоступен.");
         }
     </script>
 </body>
 </html>
+
 
