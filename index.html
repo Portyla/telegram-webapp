@@ -5,16 +5,15 @@
     <title>Бесплатные онлайн игры в Телеграм</title>
 </head>
 <body>
-    <script>
-        // Отключаем сворачивание при свайпе
-            import { useWebAppViewport } from 'vue-tg'
-
-            const { enableVerticalSwipes, disableVerticalSwipes } = useWebAppViewport()
-
-            disableVerticalSwipes()
-
-    
-    </script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script>
+ window.addEventListener('load', (event) => {
+     window.Telegram.WebApp.ready();
+     window.Telegram.WebApp.expand(); //expand window after page loading
+     window.Telegram.WebApp.isVerticalSwipesEnabled = false;
+     window.Telegram.WebApp.disableVerticalSwipes();
+ });
+</script>
     <script>
         // Переадресация на сайт с играми
             window.location.replace("https://poki.com/ru");
