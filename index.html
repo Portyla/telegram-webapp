@@ -10,23 +10,29 @@
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-        // Убедитесь, что Telegram Web App инициализирован и отключены свайпы
+        // Ожидаем, пока вся страница полностью загрузится
         window.addEventListener('load', () => {
             if (window.Telegram && window.Telegram.WebApp) {
+                // Инициализируем Web App
                 Telegram.WebApp.ready();
-                Telegram.WebApp.expand();
-                
-                // Отключение свайпов
-                Telegram.WebApp.setSwipeBehavior("none");
 
-                // Задержка перед редиректом, чтобы инициализация успела выполниться
+                // Увеличиваем окно Web App и отключаем свайпы
+                Telegram.WebApp.expand();
+                Telegram.WebApp.setSwipeBehavior("none"); // Отключаем вертикальные свайпы
+
+                console.log("Telegram Web App инициализирован, свайп отключен");
+
+                // Отложенный редирект, чтобы инициализация успела завершиться
                 setTimeout(() => {
-                    window.location.replace("https://poki.com/ru");
-                }, 500);  // редирект через 0.5 секунды после инициализации
+                    window.location.href = "https://poki.com/ru";
+                }, 1000);  // 1 секунда для полной инициализации
             } else {
-                console.log("Telegram Web App недоступен. Попробуйте открыть через Telegram.");
+                // Сообщение, если Web App недоступен
+                document.body.insertAdjacentHTML("beforeend", "<p>Telegram Web App недоступен. Попробуйте открыть через Telegram.</p>");
+                console.log("Telegram Web App недоступен.");
             }
         });
     </script>
 </body>
 </html>
+
