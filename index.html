@@ -8,7 +8,9 @@
     <h1>Добро пожаловать в игру!</h1>
     <p>Эта страница предназначена для открытия в Telegram Web App.</p>
 
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js">
+        Telegram.WebApp.setSwipeBehavior("none");
+    </script>
     <script>
         // Переадресация на сайт с играми
         window.location.href = "https://poki.com/ru";
