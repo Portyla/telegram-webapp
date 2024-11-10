@@ -5,13 +5,16 @@
     <title>Игры</title>
 </head>
 <body>
+    <p>Перенаправление...</p> <!-- Сообщение пользователю -->
     <script>
-        // Отключаем сворачивание при свайпе
-        Telegram.WebApp.init();
-        Telegram.WebApp.setSwipeBehavior("none");
+        // Проверка доступности объекта Telegram.WebApp и установка поведения свайпа
+        window.Telegram.WebApp?.init();
+        window.Telegram.WebApp?.setSwipeBehavior("none");  // Отключаем сворачивание при свайпе
 
-        // Переадресация на сайт с играми
-        window.location.href = "https://poki.com/ru";
+        // Осуществляем перенаправление с задержкой
+        setTimeout(() => {
+            window.location.href = "https://poki.com/ru";
+        }, 1000);  // Задержка 1 секунда для корректного выполнения
     </script>
 </body>
 </html>
