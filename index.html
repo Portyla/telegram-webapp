@@ -7,7 +7,7 @@
 <body>
     <h1>Добро пожаловать в игру!</h1>
     <p>Эта страница предназначена для открытия в Telegram Web App.</p>
-    <button id="start-game" style="display:none;">Начать игру</button>
+    <button id="start-game" style="display: none;">Начать игру</button>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
@@ -23,9 +23,9 @@
                 // Показываем кнопку для начала игры после инициализации
                 document.getElementById('start-game').style.display = 'block';
 
-                // Обработчик нажатия кнопки, который перенаправит на сайт с играми
+                // Добавляем обработчик клика на кнопку
                 document.getElementById('start-game').addEventListener('click', () => {
-                    window.location.href = "https://poki.com/ru";
+                    window.open("https://poki.com/ru", "_blank");
                 });
             } else {
                 // Сообщение, если Web App недоступен
@@ -36,5 +36,6 @@
     </script>
 </body>
 </html>
+
 
 
