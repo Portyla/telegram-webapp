@@ -4,31 +4,30 @@
     <meta charset="UTF-8">
     <title>Бесплатные онлайн игры в Телеграм</title>
     <style>
-       #ad-banner {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 80%;
-        height: 80%;
-        background: url('https://i.postimg.cc/j2CQrC1H/banner.jpg') no-repeat center center;
-        background-size: cover;
-        display: block;
-        z-index: 1000;
-        cursor: pointer;
+        #ad-banner {
+            position: fixed;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            background: url('https://i.postimg.cc/j2CQrC1H/banner.jpg') no-repeat center center;
+            background-size: cover;
+            display: block;
+            z-index: 1000;
+            cursor: pointer;
         }
-
-#close-btn {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    font-size: 24px;
-    padding: 10px 15px;
-    cursor: pointer;
-    z-index: 1001; /* Ensures it's above the banner */
-}
+        #close-btn {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            font-size: 24px;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 1001;
+        }
     </style>
 </head>
 <body>
@@ -42,10 +41,11 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         window.addEventListener('load', () => {
-            const closeBanner = () => {
+            const closeBanner = (event) => {
+                event.stopPropagation(); // Prevents click event from reaching banner
                 document.getElementById("ad-banner").style.display = "none";
                 
-                // Функции после закрытия баннера
+                // Additional actions after closing banner
                 window.Telegram.WebApp.ready();
                 window.Telegram.WebApp.expand();
                 window.Telegram.WebApp.isVerticalSwipesEnabled = false;
@@ -54,10 +54,10 @@
                 window.location.href = "https://poki.com/ru";
             };
 
-            // Закрытие баннера при нажатии на крестик
+            // Attach event to close button with stopPropagation
             document.getElementById("close-btn").addEventListener("click", closeBanner);
 
-            // Переход по клику на баннер на другую ссылку
+            // Redirect to another link when the banner itself is clicked
             document.getElementById("ad-banner").addEventListener("click", () => {
                 window.location.href = "https://t.me/mudak";
             });
@@ -65,8 +65,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
