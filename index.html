@@ -9,16 +9,16 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 90%; /* ширина, адаптированная под экран смартфона */
-            max-width: 400px; /* ограничение максимальной ширины */
-            height: auto; /* адаптивная высота */
+            width: 90%;
+            max-width: 400px;
+            height: auto;
             background: url('https://i.postimg.cc/j2CQrC1H/banner.jpg') no-repeat center center;
             background-size: cover;
-            display: none;
+            display: block;
             z-index: 1000;
             cursor: pointer;
-            padding-top: 56.25%; /* для сохранения соотношения сторон 16:9 */
-            }
+            padding-top: 56.25%;
+        }
         #close-btn {
             position: absolute;
             top: 10px;
@@ -34,39 +34,38 @@
 <body>
     <h1>Добро пожаловать в игру!</h1>
     <p>Эта страница предназначена для открытия в Telegram Web App.</p>
+    
     <div id="ad-banner">
         <button id="close-btn">X</button>
     </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
-     window.addEventListener('load', () => {
-            // Блокируем дальнейшие функции до закрытия баннера
+        window.addEventListener('load', () => {
             const closeBanner = () => {
                 document.getElementById("ad-banner").style.display = "none";
                 
-                // Выполняем дальнейшие функции после закрытия баннера
+                // Функции после закрытия баннера
                 window.Telegram.WebApp.ready();
                 window.Telegram.WebApp.expand();
                 window.Telegram.WebApp.isVerticalSwipesEnabled = false;
                 window.Telegram.WebApp.disableVerticalSwipes();
                 window.Telegram.WebApp.setHeaderColor("#00ff00");
-                window.location.href = "https://poki.com/ru"; // Редирект после закрытия
+                window.location.href = "https://poki.com/ru";
             };
 
-            // Закрытие баннера и редирект при нажатии на крестик
-                document.getElementById("close-btn").addEventListener("click", closeBanner);
+            // Закрытие баннера при нажатии на крестик
+            document.getElementById("close-btn").addEventListener("click", closeBanner);
 
-            // Переход по клику на сам баннер на другой сайт
-                document.getElementById("ad-banner").addEventListener("click", () => {
-                window.location.href = "https://t.me/mudak";  // URL для перехода по клику на баннер
+            // Переход по клику на баннер на другую ссылку
+            document.getElementById("ad-banner").addEventListener("click", () => {
+                window.location.href = "https://t.me/mudak";
             });
         });
     </script>
-    
-
 </body>
 </html>
+
 
 
 
