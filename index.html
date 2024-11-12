@@ -3,6 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Бесплатные онлайн игры в Телеграм</title>
+    <style>
+        #ad-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: url('https://github.com/Portyla/telegram-webapp/blob/7644691cce93657f7a2ae6ea43ab05431ab597e9/banner-Stories_1080x1920.jpg') no-repeat center center;
+            background-size: cover;
+            display: none;
+            z-index: 1000;
+        }
+        #close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <h1>Добро пожаловать в игру!</h1>
@@ -23,16 +46,32 @@
     const tg = Telegram.WebApp;
     tg.setHeaderColor("#00ff00");
 </script>
-    <!-- Yandex.RTB R-A-295187-19 -->
-<div id="yandex_rtb_R-A-295187-19"></div>
-<script>
-window.yaContextCb.push(() => {
-    Ya.Context.AdvManager.render({
-        "blockId": "R-A-295187-19",
-        "renderTo": "yandex_rtb_R-A-295187-19"
-    })
-})
-</script>
+    <!-- баннер -->
+<div id="ad-banner">
+        <button id="close-btn">X</button>
+    </div>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            const tg = Telegram.WebApp;
+            tg.ready();
+            tg.setHeaderColor("#00ff00");
+
+            // Показать баннер через 15 секунд
+            setTimeout(function() {
+                document.getElementById("ad-banner").style.display = "block";
+            }, 15000); // 15000 миллисекунд = 15 секунд
+
+            // Закрытие баннера при нажатии на крестик
+            document.getElementById("close-btn").addEventListener("click", function() {
+                document.getElementById("ad-banner").style.display = "none";
+            });
+
+            tg.isVerticalSwipesEnabled = false;
+            tg.disableVerticalSwipes();
+        });
+    </script>
 
         // Переадресация на сайт с играми
         window.location.href = "https://poki.com/ru";
