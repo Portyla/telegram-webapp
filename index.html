@@ -37,14 +37,15 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
  window.addEventListener('load', (event) => {
-     // Показываем баннер с задержкой в 15 секунд
-    setTimeout(() => {
-        document.getElementById("ad-banner").style.display = "block";
-            }, 10000);
-     // Закрытие баннера при нажатии на крестик
-    document.getElementById("close-btn").addEventListener("click", function() {
-        document.getElementById("ad-banner").style.display = "none";
-        });
+    // баннер
+    document.getElementById("ad-banner").style.display = "block";
+    // Редирект на рекламную страницу при клике на баннер
+    document.getElementById("ad-banner").addEventListener("click", function() {
+        window.location.href = "https://t.me/mudak"; // Ссылка на рекламу
+            });
+     // Закрытие баннера и переход на другую страницу при нажатии на крестик
+     document.getElementById("close-btn").addEventListener("click", function(event) {
+            event.stopPropagation(); // Предотвращаем редирект при нажатии на баннер
      window.Telegram.WebApp.ready();
      window.Telegram.WebApp.expand(); //expand window after page loading
      window.Telegram.WebApp.isVerticalSwipesEnabled = false;
