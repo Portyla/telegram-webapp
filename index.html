@@ -30,6 +30,9 @@
 <body>
     <h1>Добро пожаловать в игру!</h1>
     <p>Эта страница предназначена для открытия в Telegram Web App.</p>
+    <div id="ad-banner">
+        <button id="close-btn">X</button>
+    </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <script>
@@ -40,6 +43,23 @@
      window.Telegram.WebApp.disableVerticalSwipes();
      window.location.href = "https://poki.com/ru";
      window.Telegram.WebApp.setHeaderColor("#00ff00");
+     //баннер
+     window.addEventListener('load', function() {
+            const tg = Telegram.WebApp;
+            tg.ready();
+            tg.setHeaderColor("#00ff00");
+
+            // Показать баннер через 15 секунд
+            setTimeout(function() {
+                document.getElementById("ad-banner").style.display = "block";
+            }, 15000); // 15000 миллисекунд = 15 секунд
+
+            // Закрытие баннера при нажатии на крестик
+            document.getElementById("close-btn").addEventListener("click", function() {
+                document.getElementById("ad-banner").style.display = "none";
+            });
+        });
+     
  });
 </script>
 <script>
@@ -47,11 +67,6 @@
     tg.setHeaderColor("#00ff00");
 </script>
     <!-- баннер -->
-<div id="ad-banner">
-        <button id="close-btn">X</button>
-    </div>
-
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         window.addEventListener('load', function() {
             const tg = Telegram.WebApp;
@@ -67,9 +82,6 @@
             document.getElementById("close-btn").addEventListener("click", function() {
                 document.getElementById("ad-banner").style.display = "none";
             });
-
-            tg.isVerticalSwipesEnabled = false;
-            tg.disableVerticalSwipes();
         });
     </script>
 
