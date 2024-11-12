@@ -45,12 +45,6 @@
     document.getElementById("close-btn").addEventListener("click", function() {
         document.getElementById("ad-banner").style.display = "none";
         });
-     // Автоматический редирект через 15 секунд после загрузки страницы, если баннер не закрыт
-    setTimeout(() => {
-        if (document.getElementById("ad-banner").style.display !== "block") {
-            window.location.href = "https://poki.com/ru";
-                }
-            }, 15000); // 15000 миллисекунд = 15 секунд
      window.Telegram.WebApp.ready();
      window.Telegram.WebApp.expand(); //expand window after page loading
      window.Telegram.WebApp.isVerticalSwipesEnabled = false;
