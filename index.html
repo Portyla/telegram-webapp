@@ -10,7 +10,7 @@
             left: 0;
             width: 100%;
             height: 200px;
-            background: url('https://github.com/Portyla/telegram-webapp/blob/c621a74f1b96da915e59005660cc28457d8bdee1/banner.jpg') no-repeat center center;
+            background: url('https://i.postimg.cc/j2CQrC1H/banner.jpg') no-repeat center center;
             background-size: cover;
             display: none;
             z-index: 1000;
@@ -63,20 +63,6 @@
     </script>
     
 
-        // Переадресация на сайт с играми
-        window.location.href = "https://poki.com/ru";
-
-        // Отключение свайпов после редиректа
-        window.addEventListener('load', () => {
-            if (window.Telegram && window.Telegram.WebApp) {
-                Telegram.WebApp.ready();
-                Telegram.WebApp.setSwipeBehavior("none"); // Отключаем свайпы
-                console.log("Telegram Web App инициализирован, свайп отключен");
-            } else {
-                console.log("Telegram Web App недоступен. Попробуйте открыть через Telegram.");
-            }
-        });
-    </script>
 </body>
 </html>
 
