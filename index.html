@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Бесплатные онлайн игры в Телеграм</title>
+    <!-- Yandex.RTB -->
+<script>window.yaContextCb=window.yaContextCb||[]</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
     <style>
         #ad-banner {
             position: fixed;
@@ -42,7 +45,16 @@
         window.addEventListener('load', () => {
             const closeBanner = (event) => {
                 event.stopPropagation(); // Prevents click event from reaching banner
-                document.getElementById("ad-banner").style.display = "none";
+                <!-- Yandex.RTB R-A-12856224-1 -->
+                <div id="yandex_rtb_R-A-12856224-1"></div>
+                <script>
+                window.yaContextCb.push(() => {
+                Ya.Context.AdvManager.render({
+                "blockId": "R-A-12856224-1",
+                "renderTo": "yandex_rtb_R-A-12856224-1"
+                })
+                })
+                </script>
                 
                 // Additional actions after closing banner
                 window.Telegram.WebApp.ready();
